@@ -5,10 +5,10 @@ import java.util.function.Function;
 
 public class SongFactory {
 
-    private static HashMap<String, Song> songByTag = new HashMap<>();
+    private static HashMap<String, Song> songsByName = new HashMap<>();
 
     public static Song getSongBy( String name, String artist, String genre ) {
-        return songByTag.computeIfAbsent( name, registerSongFor( artist, genre ) );
+        return songsByName.computeIfAbsent( name, registerSongFor( artist, genre ) );
     }
 
     private static Function<String, Song> registerSongFor( String artist, String genre ) {
