@@ -2,6 +2,11 @@ package org.example;
 
 public class Main {
     public static void main( String[] args ) {
-        System.out.println( "Hello world!" );
+        var playlist = new Playlist( "demo" );
+        playlist.addSongBy(
+                "american idiot",
+                "green day",
+                "punk" );
+        playlist.display();
     }
 }

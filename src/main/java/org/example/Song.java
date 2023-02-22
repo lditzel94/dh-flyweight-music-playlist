@@ -1,2 +1,11 @@
-package org.example;public record Song() {
+package org.example;
+
+import lombok.Builder;
+
+@Builder
+public record Song(
+        String name,
+        String artist,
+        String genre
+) {
 }
