@@ -3,8 +3,9 @@ package org.example;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.util.NoSuchElementException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class PlaylistTest {
 
@@ -34,4 +35,13 @@ class PlaylistTest {
 
         assertFalse( playlist.getSongs().containsKey( "american idiot" ) );
     }
+
+    @Test
+    @DisplayName( "Should throw exception when song does not exist" )
+    void deleteSongWithThrow() {
+        var playlist = new Playlist( "demo" );
+
+        assertThrows( NoSuchElementException.class, () -> playlist.deleteSongBy( "american idiot" ) );
+    }
+
 }
